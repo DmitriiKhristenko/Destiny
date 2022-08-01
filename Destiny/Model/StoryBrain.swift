@@ -32,46 +32,27 @@ struct StoryBrain {
     ]
     
     var storyNumber = 0
-    var currentStory = 0
+    
+    mutating func updateByFirstButton() {
+        storyNumber = story[storyNumber].choice1Destination
+        print("storyNumber \(storyNumber)")
+    }
+    
+    mutating func updateBySecondButton() {
+        storyNumber = story[storyNumber].choice2Destination
+    }
+    
+    mutating func updateFirstButton() -> String {
+        return story[storyNumber].choice1
+    }
+    
+    mutating func updateSecondButton() -> String {
+        return story[storyNumber].choice2
+    }
     
     func getStoryTitle() -> String {
         return story[storyNumber].title
-        
     }
     
-    mutating func getFirstChoice() -> String {
-        return story[storyNumber].choice1
-        
-    }
-    
-    func getSecondChoice() -> String {
-        return story[storyNumber].choice1
-        
-    }
-    /*
-     
-     mutating func checkAnswer(_ userAnswer: String) -> Bool {
-     if userAnswer == story[storyNumber].choice1 {
-     currentScore += 1
-     return true
-     } else {
-     return false
-     }
-     }
-     
-     
-     
-     mutating func nextQuestion() {
-     if questionNumber + 1 < quiz.count {
-     
-     questionNumber += 1
-     
-     } else {
-     questionNumber = 0
-     currentScore = 0
-     }
-     }
-     
-     */
 }
 

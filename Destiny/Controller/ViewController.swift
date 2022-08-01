@@ -14,27 +14,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var choice2Button: UIButton!
     
     var storyBrain = StoryBrain()
-    let story0 = "You see a fork in the road."
-    let choice1: String = ""
-    let choice2: String = ""
-    // let font = UIFont(name: "Marker Felt", size: 35) ?? .systemFont(ofSize: 35)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-        //choice1Button.titleLabel!.font = UIFont.systemFont(ofSize: 30)
-        
     }
     
+    @IBAction func choiceMadeFirst(_ sender: UIButton) {
+        storyBrain.updateByFirstButton()
+        updateUI()
+    }
     
-    @IBAction func choiceMade(_ sender: UIButton) {
-        
+    @IBAction func choiceMadeSecond(_ sender: UIButton) {
+        storyBrain.updateBySecondButton()
+        updateUI()
     }
     
     func updateUI() {
         storyLabel.text = storyBrain.getStoryTitle()
-        choice1Button.setTitle(storyBrain.getFirstChoice(), for: .normal)
-        choice2Button.setTitle(storyBrain.getSecondChoice(), for: .normal)
+        choice1Button.setTitle(storyBrain.updateFirstButton(), for: .normal)
+        choice2Button.setTitle(storyBrain.updateSecondButton(), for: .normal)
     }
+    
 }
 
