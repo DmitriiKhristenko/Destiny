@@ -6,7 +6,7 @@
 //
 
 struct StoryBrain {
-    let story = [
+    private let story = [
         Story(title: "Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: 'Need a ride, boy?'.", choice1: "I'll hop in. Thanks for the help!", choice1Destination: 2, choice2: "Better ask him if he's a murderer first.", choice2Destination: 1),
         Story(title: "He nods slowly, unfazed by the question.", choice1: "At least he's honest. I'll climb in.", choice1Destination: 2, choice2: "Wait, I know how to change a tire.", choice2Destination: 3),
         Story(
@@ -30,29 +30,20 @@ struct StoryBrain {
             choice2: "End", choice2Destination: 0
         )
     ]
-    
-    var storyNumber = 0
-    
+    private var storyNumber = 0
     mutating func updateByFirstButton() {
         storyNumber = story[storyNumber].choice1Destination
-        print("storyNumber \(storyNumber)")
     }
-    
     mutating func updateBySecondButton() {
         storyNumber = story[storyNumber].choice2Destination
     }
-    
     mutating func updateFirstButton() -> String {
         return story[storyNumber].choice1
     }
-    
     mutating func updateSecondButton() -> String {
         return story[storyNumber].choice2
     }
-    
     func getStoryTitle() -> String {
         return story[storyNumber].title
     }
-    
 }
-
